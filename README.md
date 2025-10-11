@@ -12,9 +12,9 @@ Scans for I2C devices and performs read/write operations based on commands from 
 + `write byte` - sends one byte to a device.
 + `read bytes` - requests a specified number of bytes from the device.
 
-# Common Use Cases
+## Common Use Cases
 
-## Case 1. Scan and Connect
+### Case 1. Scan and Connect
 
 1. Open Serial Monitor:
 ```
@@ -49,7 +49,7 @@ Connection successful.
 
 Executing the `connect` command is optional - if no address has been saved, the program will automatically prompt you to enter one before any read or write operation.
 
-## Case 2. Write byte and Read bytes
+### Case 2. Write/Read Bytes
 
 1. Enter `write byte`
 2. Enter `0x08` - for example, the _Voltage()_ command of the BQ28Z610 Gas Gauge Device:
@@ -74,7 +74,7 @@ Actual read: 2
 ```
 5. `[ C9 1A ]` = 0x1AC9 (Little Endian) = 6857 (mV)
 
-## Case 3. Working with Registers
+### Case 3. Working with Registers
 
 As an example, here is the sequence for reading the Chemical ID of the BQ28Z610 device:
 
@@ -129,11 +129,17 @@ Where:
   - **0x94** - checksum: 0x94 =  0xFF - (0x06 + 0x00 + 0x52 + 0x13)
   - **0x06** - length: two bytes for command, two bytes for result, two bytes for checksum and length
 
-# Sources
+## Author
+[@asilichenko](https://github.com/asilichenko)
+
+## License
+[MIT license](LICENSE)
+
+## Sources
 - [i2c_tester.ino](i2c_tester.ino) - main Arduino sketch
 - [utils.h](utils.h) - util functions header
 - [utils.cpp](utils.cpp) - util function implementation
 
-# See Also
+## See Also
 - [Custom Driver for Gas Gauging Device BQ28Z610](https://github.com/asilichenko/bq28z610-arduino-driver) - A driver for Arduino that provides functions to interface with the BQ28Z610 battery gas gauge device over I2C protocol.
 - [JBL XTREME 2 BMS](https://github.com/asilichenko/jbl-xtreme2-bms) - Arduino sketches to analyse and emulate BMS microchip of the Battery Pack for the JBL XTREME 2 Bluetooth Speaker.
