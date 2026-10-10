@@ -54,6 +54,7 @@ int connectedAddr = 0;
 
 void setup() {
   Wire.begin();
+  Wire.setWireTimeout(25000, true); // 25ms, reset bus on timeout
 
   Serial.begin(9600);
   while (!Serial);
